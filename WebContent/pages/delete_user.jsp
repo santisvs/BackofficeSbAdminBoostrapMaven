@@ -28,10 +28,30 @@
                             </div>
                         </div>
                         <!-- /.panel-heading -->
+                        
+                                          
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-8">
-                                    <div class="table-responsive">
+                                
+	                                <div class="dataTables_length" id="dataTables-example_length">
+		                                <label>Show 
+		                                	<select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
+				                                <option value="10">10</option>
+				                                <option value="25">25</option>
+				                                <option value="50">50</option>
+				                                <option value="100">100</option>
+		                                	</select> entries
+		                                </label>
+	                                </div>
+	                                
+	                                <div id="dataTables-example_filter" class="dataTables_filter">
+	                                	<label>Search:
+	                                		<input type="search" class="form-control input-sm" placeholder="" aria-controls="dataTables-example">
+	                                	</label>
+	                                </div>
+                                
+                                	<div class="table-responsive">
                                         <table class="table table-bordered table-hover table-striped">
                                             <thead>
                                                 <tr>
@@ -74,21 +94,42 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-                                </div>
-                                <!-- /.col-lg-4 (nested) -->
-                                <div class="col-lg-8">
-                                    <div id="morris-bar-chart"></div>
-                                </div>
-                                <!-- /.col-lg-8 (nested) -->
+                                	</div><!-- /.table-responsive -->
+                                    
+                            </div><!-- /.col-lg-8 (nested) -->
+                                
+                            <div class="col-sm-6">
+                            	<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">
+                            		Showing 1 to 57 of 57 entries
+                            	</div>
                             </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
+                                
+                                
+                            <div class="col-sm-6">
+                            	<div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
+                                	<ul class="pagination">
+                                		<li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous">
+                                			<a href="#">Previous</a>
+                                		</li>
+                                		<li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
+                                			<a href="#">1</a>
+                                		</li>
+                                		<li class="paginate_button next disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next">
+                                			<a href="#">Next</a>
+                                		</li>
+                                	</ul>
+                                </div>
+                            </div><!-- /.col-sm-6 -->
+                                
+                                
+                       		<div class="col-lg-8">
+                            	<div id="morris-bar-chart"></div>
+                            </div><!-- /.col-lg-8 (nested) -->
+                    	</div><!-- /.row -->
+                	</div><!-- /.panel-body -->
+            	</div><!-- /panel panel-default -->
             </div>
         </div>
-        <!-- /#page-wrapper -->
+        
 
 <%@include file="../includes/footer.jsp" %>
