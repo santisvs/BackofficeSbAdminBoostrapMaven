@@ -8,7 +8,7 @@
                 </div>
                 <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-user fa-fw"></i> Usuarios inscritos
+                            <i class="fa fa-minus fa-fw"></i><i class="fa fa-user fa-fw"></i> Eliminar Usuario
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">

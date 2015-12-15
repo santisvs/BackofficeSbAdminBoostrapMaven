@@ -16,9 +16,9 @@
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#"><i class="fa fa-plus fa-fw"></i> Añadir Usuario</a>
+                                        <li><a href="pages/add_user.jsp"><i class="fa fa-plus fa-fw"></i> Añadir Usuario</a>
                                         </li>
-                                        <li><a href="#"><i class="fa fa-minus fa-fw"></i> Eliminar Usuario</a>
+                                        <li><a href="pages/delete_user.jsp"><i class="fa fa-minus fa-fw"></i> Eliminar Usuario</a>
                                         </li>
                                         <li class="divider"></li>
                                         <li><a href="#"><i class="fa fa-filter fa-fw"></i> Filtro</a>
