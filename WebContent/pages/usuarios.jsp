@@ -1,3 +1,10 @@
+<!-- directivas -->
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="com.ipartek.formacion.backoffice.pojo.Persona"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="com.ipartek.formacion.backoffice.modelo.DbConnection"%>
 <%@include file="../includes/head.jsp" %>
 <%@include file="../includes/nav.jsp" %>
 
@@ -27,6 +34,41 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        conectarnos bbdd
+                        <!-- Escribimos un scriplet -->
+                        <%
+                        	//podemos escribir java
+                        	//Para realizar los import:
+                        		//Poner cursor al final del nombre de la clase
+                        		//pulsar CTRL+SPACE (automaticamente se importan las clases en las jsp)
+                        	
+                        	//Crear conexion
+                        	DbConnection conex= new DbConnection();
+                        	//Crear la consulta
+                        	String sql = "select * from persona";
+                        	//Creamos la consulta
+                        	PreparedStatement ps = conex.getConnection().prepareStatement(sql);
+                        	//Ejecutar la consulta
+                        	ResultSet rs = ps.executeQuery();
+                        	
+                        	//ArrayList<Persona>
+                        	ArrayList<Persona> lista = new ArrayList<Persona>();
+                        	Persona p = null;
+                        	
+                        	//Iterar sobre los resultados
+                        	while (rs.next()){
+                        		p = new Persona();
+                        		p.setId( rs.getInt("id") );
+                        		p.setNombre( rs.getString("nombre") );
+                        		p.setEmail( rs.getString("email"));
+                        		p.setFecha(rs.getDate("fecha_nacimiento"));
+                        		lista.add(p);
+                        	}
+                        
+                        	out.print(lista);
+                        %>
+                                                
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="row">
@@ -35,43 +77,21 @@
                                         <table class="table table-bordered table-hover table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
+                                                    <th>Id</th>
                                                     <th>Nombre</th>
-                                                    <th>Apellido</th>
-                                                    <th>Curso</th>
+                                                    <th>Email</th>
+                                                    <th>Años</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Santiago</td>
-                                                    <td>Vallejo</td>
-                                                    <td>Java J2EE</td>
+                                            <% for (Persona persona : lista ) { %>
+                                            	<tr>
+                                                    <td><%=persona.getId()%></td>
+                                                    <td><%=persona.getNombre()%></td>
+                                                    <td><%=persona.getEmail()%></td>
+                                                    <td><%=persona.getEdad()%></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Santiago</td>
-                                                    <td>Vallejo</td>
-                                                    <td>Java J2EE</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Santiago</td>
-                                                    <td>Vallejo</td>
-                                                    <td>Java J2EE</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Santiago</td>
-                                                    <td>Vallejo</td>
-                                                    <td>Java J2EE</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td>Santiago</td>
-                                                    <td>Vallejo</td>
-                                                    <td>Java J2EE</td>
-                                                </tr>
+                                            <% } //end foreach %>
                                             </tbody>
                                         </table>
                                     </div>
