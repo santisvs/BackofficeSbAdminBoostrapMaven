@@ -75,7 +75,7 @@
                                 <div class="col-lg-8">
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-hover table-striped">
-                                            <thead>
+                                          <thead>
                                                 <tr>
                                                     <th>Id</th>
                                                     <th>Nombre</th>
@@ -92,7 +92,11 @@
                                                     <td><%=persona.getEdad()%></td>
                                                 </tr>
                                             <% } //end foreach %>
-                                            </tbody>
+                                            </tbody>  
+                                            
+                                            
+                                            
+                                            
                                         </table>
                                     </div>
                                     <!-- /.table-responsive -->
