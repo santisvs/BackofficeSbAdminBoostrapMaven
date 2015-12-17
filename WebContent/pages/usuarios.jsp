@@ -46,7 +46,7 @@
                         	//Crear conexion
                         	DbConnection conex= new DbConnection();
                         	//Crear la consulta
-                        	String sql = "select * from persona";
+                        	String sql = "select * from `persona` order by `id` desc limit 500";
                         	//Creamos la consulta
                         	PreparedStatement ps = conex.getConnection().prepareStatement(sql);
                         	//Ejecutar la consulta
