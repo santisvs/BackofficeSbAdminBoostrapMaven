@@ -35,39 +35,7 @@
                             </div>
                         </div>
                         
-                        conectarnos bbdd
-                        <!-- Escribimos un scriplet -->
-                        <%
-                        	//podemos escribir java
-                        	//Para realizar los import:
-                        		//Poner cursor al final del nombre de la clase
-                        		//pulsar CTRL+SPACE (automaticamente se importan las clases en las jsp)
-                        	
-                        	//Crear conexion
-                        	DbConnection conex= new DbConnection();
-                        	//Crear la consulta
-                        	String sql = "select * from `persona` order by `id` desc limit 500";
-                        	//Creamos la consulta
-                        	PreparedStatement ps = conex.getConnection().prepareStatement(sql);
-                        	//Ejecutar la consulta
-                        	ResultSet rs = ps.executeQuery();
-                        	
-                        	//ArrayList<Persona>
-                        	ArrayList<Persona> lista = new ArrayList<Persona>();
-                        	Persona p = null;
-                        	
-                        	//Iterar sobre los resultados
-                        	while (rs.next()){
-                        		p = new Persona();
-                        		p.setId( rs.getInt("id") );
-                        		p.setNombre( rs.getString("nombre") );
-                        		p.setEmail( rs.getString("email"));
-                        		p.setFecha(rs.getDate("fecha_nacimiento"));
-                        		lista.add(p);
-                        	}
                         
-                        	out.print(lista);
-                        %>
                                                 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -80,16 +48,21 @@
                                                     <th>Id</th>
                                                     <th>Nombre</th>
                                                     <th>Email</th>
-                                                    <th>Años</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <% for (Persona persona : lista ) { %>
+                                            <% 
+                                            	//recoger "atributo" listado personas de la request
+                                            	//getAttribute(Key) = getAttribute("lista") 
+                                            	ArrayList<Persona> listaUsuarios = (ArrayList<Persona>)request.getAttribute("listaUsuarios");
+                                            	if ( listaUsuarios == null ) {
+                                            		listaUsuarios = new ArrayList<Persona>();
+                                            	}
+                                            for (Persona persona : listaUsuarios ) { %>
                                             	<tr>
                                                     <td><%=persona.getId()%></td>
-                                                    <td><%=persona.getNombre()%></td>
+                                                    <td><a href="usuarios?id=<%=persona.getId()%>" title="ir al detalle" alt="ir al detalle"><%=persona.getNombre()%></a></td>
                                                     <td><%=persona.getEmail()%></td>
-                                                    <td><%=persona.getEdad()%></td>
                                                 </tr>
                                             <% } //end foreach %>
                                             </tbody>  

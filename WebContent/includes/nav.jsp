@@ -239,7 +239,7 @@
                             <a href="index.jsp"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="pages/usuarios.jsp"><i class="fa fa-user fa-fw"></i> Usuarios</a>
+                            <a href="usuarios"><i class="fa fa-user fa-fw"></i> Usuarios</a>
                         </li>
                         <li>
                             <a href="pages/cursos.jsp"><i class="fa fa-graduation-cap fa-fw"></i> Cursos</a>

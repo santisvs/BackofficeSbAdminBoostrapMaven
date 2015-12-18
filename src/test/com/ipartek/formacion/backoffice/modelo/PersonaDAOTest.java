@@ -51,12 +51,12 @@ public class PersonaDAOTest {
 		pMock.setPass("999999");
 		pMock.setDni("67786757G");
 		pMock.setEmail("pMock@gmail.com");
-		pMock.setFecha(new Timestamp(0));
+		//pMock.setFecha(new Timestamp(new Date().getTime())); //Fecha inicializada en el constructor
 		pMock.setObservaciones("Esto es una prueba");
 
 		id = dao.insert(pMock);
-		pMock.setId(id);
-		assertTrue("No se ha realizado la insercion", id > 0);
+		//pMock.setId(id);	//No hace falta esta operación porque esta implementada en el insert
+		assertTrue("No se ha realizado la insercion", pMock.getId() > 0);
 	}
 
 	@After
@@ -64,7 +64,7 @@ public class PersonaDAOTest {
 		assertTrue("No se pudo eliminar la persona insertada", dao.delete(id));
 	}
 
-	@Test
+	@Ignore
 	public void testGetAll() {
 
 		try{
@@ -75,7 +75,7 @@ public class PersonaDAOTest {
 		}
 	}
 
-	@Ignore
+	@Test
 	public void testGetById() {
 
 		try {
@@ -106,13 +106,32 @@ public class PersonaDAOTest {
 
 	@Ignore
 	public void testUpdate() {
+		String nombreNuevo = "pMockkk";
 		//Modificamos el nombre del objeto pMock para actualizarlo en BBDD
-		pMock.setNombre("pMockkk");
+		pMock.setNombre(nombreNuevo);
 		try {
 			assertTrue("el nombre de la persona no se ha modificado en BBDD", dao.update(pMock));
 		} catch (SQLException e) {
 			fail("Tenemos una cagada en la implementacion de nuestro DAO update: "+e.getMessage());
 		}
+		
+		assertEquals(nombreNuevo, pMock.getNombre());
+		
+		//test null
+		try {
+			assertFalse("No modifica persona NULL",dao.update(null));
+		} catch (Exception e) {
+			fail("Tenemos una cagada en la implementacion de nuestro DAO update: "+e.getMessage());
+		}
+		
+		//test no existe persona a modificar
+		Persona pNoInsertada = new Persona();
+		try {
+			assertFalse("No modifica una persona que no existe", dao.update(pNoInsertada));
+		} catch (SQLException e) {
+			fail("Tenemos una cagada en la implementacion de nuestro DAO update: "+e.getMessage());
+		}
+		
 	}
 
 	@Ignore

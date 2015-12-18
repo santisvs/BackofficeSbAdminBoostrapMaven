@@ -108,26 +108,27 @@ public class PersonaDAO implements Persistible<Persona>{
 	public boolean update( Persona p) throws SQLException {
 		boolean resul = false;
 		
-		//Crear conexion
-    	DbConnection conn= new DbConnection();
-    	//Crear la consulta
-    	String sql = "UPDATE `persona` SET `nombre`= ?, `dni`= ? WHERE  `id`= ? ;";
-    	//Creamos la consulta
-    	PreparedStatement pst = conn.getConnection().prepareStatement(sql);
-    	pst.setString(1, p.getNombre());
-    	pst.setString(2, p.getDni());
-    	pst.setInt(3, p.getId());
-    	//TODO Importante corregir el valor de id cuando incluyamos más valores
-    	
-    	//Ejecutar la consulta
-    	if ( pst.executeUpdate() == 1 ){
-    		resul = true;
-    	}
-    	
-    	//cerrar recursos en orden inversa
-    	pst.close();
-    	conn.desconectar();
-    	
+		if (p != null){
+			//Crear conexion
+	    	DbConnection conn= new DbConnection();
+	    	//Crear la consulta
+	    	String sql = "UPDATE `persona` SET `nombre`= ?, `dni`= ? WHERE  `id`= ? ;";
+	    	//Creamos la consulta
+	    	PreparedStatement pst = conn.getConnection().prepareStatement(sql);
+	    	pst.setString(1, p.getNombre());
+	    	pst.setString(2, p.getDni());
+	    	pst.setInt(3, p.getId());
+	    	//TODO Importante corregir el valor de id cuando incluyamos más valores
+	    	
+	    	//Ejecutar la consulta
+	    	if ( pst.executeUpdate() == 1 ){
+	    		resul = true;
+	    	}
+	    	
+	    	//cerrar recursos en orden inversa
+	    	pst.close();
+	    	conn.desconectar();
+		}
 		return resul;
 	}
 
@@ -183,9 +184,11 @@ public class PersonaDAO implements Persistible<Persona>{
 	Persona mapeo (ResultSet rs) throws SQLException{
 		Persona p = new Persona();
 		p.setId( rs.getInt("id") );
+		p.setDni( rs.getString("dni") );
 		p.setNombre( rs.getString("nombre") );
 		p.setEmail( rs.getString("email"));
-		p.setFecha( rs.getTimestamp("fecha"));
+		//p.setFecha( rs.getTimestamp("fecha"));		//Error insertar TimeStamp
+		p.setFecha(null);
 		p.setPass( rs.getString("pass"));
 		p.setObservaciones( rs.getString("observaciones") );
 		return p;

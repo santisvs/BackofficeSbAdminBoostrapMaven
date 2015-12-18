@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import com.sun.org.glassfish.external.statistics.impl.TimeStatisticImpl;
+
 public class Persona {
 
 	private int id;
@@ -28,7 +30,7 @@ public class Persona {
 		this.nombre = "";
 		this.email = "";
 		this.dni = "";
-		this.fecha = null;
+		this.fecha = new Timestamp(new Date().getTime());
 		this.pass = "";
 		this.observaciones = "";
 	}
@@ -115,10 +117,12 @@ public class Persona {
 		this.nombre = nombre;
 	}
 
+	/*
+	 * TODO Implementar metodo getEdad 
 	public int getEdad(){
 		
 		return fecha.getYear() - Calendar.YEAR;
-	}
+	}*/
 
 	@Override
 	public String toString() {
