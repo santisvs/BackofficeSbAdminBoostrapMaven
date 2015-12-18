@@ -34,12 +34,13 @@
                                     <form role="form">
                                         <div class="form-group">
                                             <label>Nombre</label>
-                                            <input class="form-control" placeholder="Enter text">
+                                            <input class="form-control" placeholder="EJ: Nombre Apellido">
                                         </div>
                                         <div class="form-group">
-                                            <label>Apellido</label>
-                                            <input class="form-control" placeholder="Enter text">
+                                            <label>Dni</label>
+                                            <input class="form-control" placeholder="Ejemplo: 000000000L">
                                         </div>
+                                        
                                         <div class="form-group">
                                             <label>Correo</label>
                                             <input class="form-control" placeholder="Ejemplo: anonimo@gmail.com">
