@@ -47,16 +47,16 @@
                         	<div class="col-lg-6"> 
                         			<div class="form-group">
                             			<label>Nombre</label>
-                                			<input class="form-control" type="text" name="nombre" value="<%=usuario.getNombre()%>" placeholder="Escribe tu Nombre" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required >
+                                			<input class="form-control" type="text" name="nombre" value="<%=usuario.getNombre()%>" placeholder="Escribe tu Nombre" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required autofocus tabindex="1">
                                 		<br>
                                 		<label>Email</label>
-                                			<input class="form-control" type="email" name="email" value="<%=usuario.getEmail()%>" placeholder="Escribe tu email" required >
+                                			<input class="form-control" type="email" name="email" value="<%=usuario.getEmail()%>" placeholder="Escribe tu email" required tabindex="2">
                                 		<br>
                                 		<label>Dni</label>
-                                			<input class="form-control" type="text" name="dni" value="<%=usuario.getDni()%>" placeholder="Escribe tu dni" required >	
+                                			<input class="form-control" type="text" name="dni" value="<%=usuario.getDni()%>" placeholder="Escribe tu dni" required tabindex="3">	
                                 		<br>
                                 		<label>Passw</label>
-                                			<input class="form-control" type="text" name="pass" value="<%=usuario.getPass()%>" placeholder="Escribe tu password" required>	
+                                			<input class="form-control" type="text" name="pass" value="<%=usuario.getPass()%>" placeholder="Escribe tu password" required tabindex="4">	
     									<br>
                                 		<label>Fecha nacimiento</label>
                                 		<div class="row">
@@ -113,7 +113,7 @@
                         	               			               		
                 			<div class="col-lg-12"> 
                             	<label>Observaciones</label>
-                        			<textarea class="form-control" rows="5" name="observaciones" >
+                        			<textarea class="form-control" rows="5" name="observaciones" tabindex="5">
                         				<%=usuario.getObservaciones()%>
                         			</textarea>
                 			</div><!-- <div class="col-lg-12"> -->
