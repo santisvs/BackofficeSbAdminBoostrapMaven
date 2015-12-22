@@ -1,4 +1,5 @@
 <!-- directivas -->
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@page import="com.ipartek.formacion.backoffice.controladores.ControladorConstantes"%>
 <%@page import="com.ipartek.formacion.backoffice.pojo.Persona"%>
 <%@include file="../includes/head.jsp" %>
@@ -21,7 +22,7 @@
         		<div class="panel-heading">
             	
                 	<%if (isNew){ %>
-                    	<i class="fa fa-user fa-fw"></i> Añadir Usuario
+                    	<i class="fa fa-user fa-fw"></i> AÃ±adir Usuario
                         <div class="pull-right">
                         	<button type="submit" class="btn btn-default btn-xs">
                                	<i class="fa fa-plus fa-fw"></i> Crear Usuario          

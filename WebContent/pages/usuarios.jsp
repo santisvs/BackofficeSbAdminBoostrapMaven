@@ -1,4 +1,5 @@
 <!-- directivas -->
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@page import="com.ipartek.formacion.backoffice.controladores.ControladorConstantes"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="com.ipartek.formacion.backoffice.pojo.Persona"%>
@@ -24,7 +25,7 @@
                             <div class="pull-right">
                                 
                                     <button type="button" class="btn btn-default btn-xs">
-                                        <a href="usuarios?op=<%=ControladorConstantes.OP_NUEVO%>" title="Crear nuevo usuario"><i class="fa fa-plus fa-fw"></i> Añadir Usuario</a>          
+                                        <a href="usuarios?op=<%=ControladorConstantes.OP_NUEVO%>" title="Crear nuevo usuario"><i class="fa fa-plus fa-fw"></i> AÃ±adir Usuario</a>          
                                     </button>
                             </div>
                         </div>
