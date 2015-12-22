@@ -36,6 +36,9 @@ public class UsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try{
+			//TODO intentar forzarlo para todos los servlets => Filtros
+			request.setCharacterEncoding("UTF-8");
+			
 			daoPersona = new PersonaDAO();
 			msj = null;
 			
