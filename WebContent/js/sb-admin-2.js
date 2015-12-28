@@ -1,8 +1,19 @@
+/*
 $(function() {
 
     $('#side-menu').metisMenu();
 
 });
+*/
+
+/*
+ * Ejecuta en el inicio 
+ * Habilita el plugin tinymce
+ *  
+ */
+tinymce.init({ selector:'textarea' });
+
+
 
 //Loads the correct sidebar on window load,
 //collapses the sidebar on window resize.
@@ -34,3 +45,18 @@ $(function() {
         element.addClass('active');
     }
 });
+
+/*
+ * Ejecuta cuando esta toda la página web cargada o ready
+ * Habilita el plugin DataTable
+ *  
+ */
+$(document).ready(function() {
+	
+	console.debug('ready');
+	
+	//habilitamos el plugian a cualquiera que tenga la clase tabla ("class => .datatable")
+    $('.datatable').DataTable();
+    
+} );
+
